@@ -73,6 +73,6 @@ pre {
 }
 
 /* 12. Create a root stacking context */
-#root, #__next {
+#root {
   isolation: isolate;
 }
