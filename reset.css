@@ -4,9 +4,11 @@
   display: revert;
 }
 
-/* 2. Remove default margin */
+/* 2. Remove default margin and ensure typography inheritance */
 * {
   margin: 0;
+  font-family: inherit;
+  color: inherit;
 }
 
 /* 3. Enable smooth scrolling for users without motion preference */
@@ -19,8 +21,10 @@
 html, body {
   /* Ensure the root fills the viewport */
   height: 100%;
+  min-height: 100vh;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  text-size-adjust: 100%;
 }
 
 /* 6. Improve media defaults */
@@ -29,11 +33,12 @@ img, picture, video, canvas, svg {
   max-width: 100%;
 }
 
-/* 7. Inherit fonts for form controls */
+/* 7. Inherit fonts for form controls and ensure consistent sizing */
 input, button, textarea, select {
   font: inherit;
   border: none;
   background: none;
+  min-width: 0;
 }
 
 /* Reset button styles */
@@ -55,7 +60,19 @@ h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
 }
 
-/* 10. Create a root stacking context */
-#root {
+/* 10. Normalize list styles */
+ul, ol {
+  list-style: none;
+  padding: 0;
+}
+
+/* 11. Prevent pre elements from causing horizontal scroll */
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* 12. Create a root stacking context */
+#root, #__next {
   isolation: isolate;
 }
